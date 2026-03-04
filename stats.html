@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MARUEL | Statistikk</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8d48b;
+      --gold-dark: #8b6914;
+      --bg-dark: #0f0c06;
+      --bg-card: rgba(201, 168, 76, 0.06);
+      --bg-card-hover: rgba(201, 168, 76, 0.10);
+      --text-primary: #f5edd6;
+      --text-secondary: #b8a882;
+      --border: rgba(201, 168, 76, 0.15);
+      --border-strong: rgba(201, 168, 76, 0.30);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(201, 168, 76, 0.07) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(139, 105, 20, 0.04) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .header-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+
+    .header-back:hover { color: var(--gold); }
+
+    .header-title {
+      font-family: 'Cinzel', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 20px rgba(201, 168, 76, 0.3);
+    }
+
+    .header-subtitle {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0 36px;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    .divider-icon { color: var(--gold); opacity: 0.4; font-size: 12px; }
+
+    /* Summary cards */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+
+    .stat-card:hover { border-color: var(--border-strong); }
+
+    .stat-value {
+      font-family: 'Cinzel', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+      text-shadow: 0 0 30px rgba(201, 168, 76, 0.2);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    /* Section heading */
+    .section-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      opacity: 0.6;
+      margin-bottom: 16px;
+    }
+
+    /* Platform rows */
+    .platform-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .platform-row {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: border-color 0.2s;
+    }
+
+    .platform-row:hover { border-color: var(--border-strong); }
+
+    .platform-rank {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      color: var(--gold-dark);
+      width: 20px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .platform-name {
+      flex: 1;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .platform-bar-wrapper {
+      flex: 1.5;
+      height: 6px;
+      background: rgba(201, 168, 76, 0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .platform-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+      border-radius: 3px;
+      transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 0;
+    }
+
+    .platform-count {
+      font-family: 'Cinzel', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gold-light);
+      min-width: 32px;
+      text-align: right;
+    }
+
+    /* Status / refresh */
+    .status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .status-text {
+      font-size: 12px;
+      color: var(--text-secondary);
+      opacity: 0.5;
+    }
+
+    .refresh-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-secondary);
+      font-size: 12px;
+      padding: 6px 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .refresh-btn:hover {
+      border-color: var(--border-strong);
+      color: var(--gold);
+    }
+
+    .refresh-icon { transition: transform 0.4s; }
+    .refresh-btn.spinning .refresh-icon { transform: rotate(360deg); }
+
+    /* Loading / error states */
+    .loading-state, .error-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-secondary);
+    }
+
+    .loading-spinner {
+      width: 32px;
+      height: 32px;
+      border: 2px solid var(--border);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .header { animation: fadeUp 0.5s ease-out; }
+    .summary-grid { animation: fadeUp 0.5s ease-out 0.1s both; }
+    .platform-list { animation: fadeUp 0.5s ease-out 0.2s both; }
+
+    @media (max-width: 400px) {
+      .stat-value { font-size: 30px; }
+      .platform-bar-wrapper { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <a href="/" class="header-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Tilbake til siden
+    </a>
+    <h1 class="header-title">Statistikk</h1>
+    <p class="header-subtitle">MARUEL · Aktivitetsdata</p>
+  </div>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <span class="divider-icon">&#10013;</span>
+    <div class="divider-line"></div>
+  </div>
+
+  <div id="content">
+    <div class="loading-state">
+      <div class="loading-spinner"></div>
+      <p>Laster statistikk…</p>
+    </div>
+  </div>
+
+  <div class="status-bar">
+    <span class="status-text" id="last-updated"></span>
+    <button class="refresh-btn" id="refresh-btn" onclick="loadStats()">
+      <svg class="refresh-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+      Oppdater
+    </button>
+  </div>
+
+</div>
+
+<script>
+  const PLATFORM_COLORS = {
+    spotify: '#1ed760',
+    apple: '#fc3c44',
+    'youtube-music': '#ff0000',
+    youtube: '#ff0000',
+    tidal: '#00ffff',
+    amazon: '#25d1da',
+    soundcloud: '#ff5500',
+    songbox: '#c9a84c',
+    tiktok: '#ffffff',
+    instagram: '#e4405f',
+    email: '#c9a84c'
+  };
+
+  function getSecretParam() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('key') ? `?key=${params.get('key')}` : '';
+  }
+
+  function formatNumber(n) {
+    if (n >= 1000) return (n / 1000).toFixed(1).replace('.0', '') + 'k';
+    return n.toString();
+  }
+
+  async function loadStats() {
+    const btn = document.getElementById('refresh-btn');
+    btn.classList.add('spinning');
+
+    try {
+      const res = await fetch('/api/stats' + getSecretParam());
+
+      if (res.status === 401) {
+        document.getElementById('content').innerHTML = `
+          <div class="error-state">
+            <p>🔒 Statistikk er passordbeskyttet.</p>
+            <p style="margin-top:8px;font-size:12px;opacity:0.6">Legg til <code>?key=ditt-passord</code> i URL-en.</p>
+          </div>`;
+        return;
+      }
+
+      if (!res.ok) throw new Error('Feil ved henting');
+
+      const data = await res.json();
+      renderStats(data);
+
+      const now = new Date();
+      document.getElementById('last-updated').textContent =
+        `Oppdatert ${now.toLocaleTimeString('no-NO', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}`;
+
+    } catch (err) {
+      document.getElementById('content').innerHTML = `
+        <div class="error-state">
+          <p>Kunne ikke hente statistikk.</p>
+          <p style="margin-top:8px;font-size:12px;opacity:0.6">${err.message}</p>
+        </div>`;
+    } finally {
+      setTimeout(() => btn.classList.remove('spinning'), 400);
+    }
+  }
+
+  function renderStats(data) {
+    const { pageviews, totalClicks, clicks, platforms } = data;
+
+    const sorted = [...platforms].sort((a, b) => (clicks[b.key] || 0) - (clicks[a.key] || 0));
+    const maxClicks = Math.max(...Object.values(clicks), 1);
+
+    const platformRows = sorted.map((p, i) => {
+      const count = clicks[p.key] || 0;
+      const pct = Math.round((count / maxClicks) * 100);
+      const color = PLATFORM_COLORS[p.key] || '#c9a84c';
+      return `
+        <div class="platform-row">
+          <span class="platform-rank">${i + 1}</span>
+          <span class="platform-name">${p.label}</span>
+          <div class="platform-bar-wrapper">
+            <div class="platform-bar" data-pct="${pct}" style="background: linear-gradient(90deg, rgba(${hexToRgb(color)}, 0.5), rgba(${hexToRgb(color)}, 0.9));"></div>
+          </div>
+          <span class="platform-count">${formatNumber(count)}</span>
+        </div>`;
+    }).join('');
+
+    document.getElementById('content').innerHTML = `
+      <div class="summary-grid">
+        <div class="stat-card">
+          <div class="stat-value">${formatNumber(pageviews)}</div>
+          <div class="stat-label">Sidevisninger</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">${formatNumber(totalClicks)}</div>
+          <div class="stat-label">Totale klikk</div>
+        </div>
+      </div>
+
+      <p class="section-heading">Klikk per plattform</p>
+      <div class="platform-list">
+        ${platformRows}
+      </div>`;
+
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.platform-bar').forEach(bar => {
+        bar.style.width = bar.dataset.pct + '%';
+      });
+    });
+  }
+
+  function hexToRgb(hex) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return isNaN(r) ? '201, 168, 76' : `${r}, ${g}, ${b}`;
+  }
+
+  loadStats();
+  setInterval(loadStats, 60000);
+</script>
+
+</body>
+</html>

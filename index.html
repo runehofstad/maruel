@@ -9,10 +9,10 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://runehofstad.github.io/maruel/">
+  <meta property="og:url" content="https://maruel.xstrim.tv/">
   <meta property="og:title" content="MARUEL | Music Links">
   <meta property="og:description" content="Listen to MARUEL on your favorite streaming platform">
-  <meta property="og:image" content="https://runehofstad.github.io/maruel/cover.png">
+  <meta property="og:image" content="https://maruel.xstrim.tv/cover.png">
   <meta property="og:image:width" content="1536">
   <meta property="og:image:height" content="1024">
 
@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MARUEL | Music Links">
   <meta name="twitter:description" content="Listen to MARUEL on your favorite streaming platform">
-  <meta name="twitter:image" content="https://runehofstad.github.io/maruel/cover.png">
+  <meta name="twitter:image" content="https://maruel.xstrim.tv/cover.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -216,7 +216,7 @@
     .links-section {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
       width: 100%;
     }
 
@@ -224,7 +224,7 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      padding: 16px 20px;
+      padding: 20px 22px;
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 14px;
@@ -270,9 +270,17 @@
       z-index: 1;
     }
 
-    .link-icon svg {
+    .link-icon svg,
+    .link-icon img {
       width: 24px;
       height: 24px;
+      display: block;
+    }
+
+    .social-link img {
+      width: 22px;
+      height: 22px;
+      display: block;
     }
 
     .link-text {
@@ -324,6 +332,7 @@
       opacity: 0.6;
       text-align: center;
       margin-top: 8px;
+      margin-bottom: 20px;
     }
 
     .social-row {
@@ -437,9 +446,9 @@
   <div class="links-section">
 
     <!-- Spotify -->
-    <a href="https://open.spotify.com/artist/6KN7nJo3CZJjqeXu0LNhB5" target="_blank" rel="noopener" class="link-button">
+    <a href="https://open.spotify.com/artist/6KN7nJo3CZJjqeXu0LNhB5" target="_blank" rel="noopener" class="link-button" data-platform="spotify">
       <div class="link-icon icon-spotify">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        <img src="https://cdn.simpleicons.org/spotify/1ed760" alt="Spotify" loading="lazy">
       </div>
       <div class="link-text">
         <div class="link-title">Spotify</div>
@@ -449,9 +458,9 @@
     </a>
 
     <!-- Apple Music -->
-    <a href="https://music.apple.com/no/artist/maruel/1848717155?l=nb" target="_blank" rel="noopener" class="link-button">
+    <a href="https://music.apple.com/no/artist/maruel/1848717155?l=nb" target="_blank" rel="noopener" class="link-button" data-platform="apple">
       <div class="link-icon icon-apple">
-        <svg viewBox="0 0 361 361" fill="currentColor"><path d="M255 3H105C49 3 3 49 3 105v150c0 56 46 102 102 102h150c56 0 102-46 102-102V105C357 49 311 3 255 3zm63 225.7c0 31.5-18.1 48.3-45.6 48.3-24.8 0-42.4-15.7-42.4-39.4 0-23.9 17.9-39 42.1-39 5.5 0 10.4.8 14.4 2.3V147l-88.1 19.4v99.3c0 31.5-18 48.3-45.5 48.3-24.8 0-42.5-15.7-42.5-39.4 0-23.9 18-39 42.2-39 5.5 0 10.3.8 14.3 2.3V107.8c0-8.5 4.5-14.2 12.6-16l97.6-23.4c9.5-2.3 14.9 2.5 14.9 11.6v148.7z"/></svg>
+        <img src="https://cdn.simpleicons.org/applemusic/fc3c44" alt="Apple Music" loading="lazy">
       </div>
       <div class="link-text">
         <div class="link-title">Apple Music</div>
@@ -461,9 +470,9 @@
     </a>
 
     <!-- YouTube Music -->
-    <a href="https://music.youtube.com/channel/UC54M5GYLOG4PgVb4l0XNGJA" target="_blank" rel="noopener" class="link-button">
+    <a href="https://music.youtube.com/channel/UC54M5GYLOG4PgVb4l0XNGJA" target="_blank" rel="noopener" class="link-button" data-platform="youtube-music">
       <div class="link-icon icon-youtube-music">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-13.332c-3.432 0-6.228 2.796-6.228 6.228S8.568 18.228 12 18.228 18.228 15.432 18.228 12 15.432 5.772 12 5.772zM9.684 15.54V8.46L15.816 12l-6.132 3.54z"/></svg>
+        <img src="https://cdn.simpleicons.org/youtubemusic/ff0000" alt="YouTube Music" loading="lazy">
       </div>
       <div class="link-text">
         <div class="link-title">YouTube Music</div>
@@ -473,9 +482,9 @@
     </a>
 
     <!-- YouTube Channel -->
-    <a href="https://www.youtube.com/@maruel-music" target="_blank" rel="noopener" class="link-button">
+    <a href="https://www.youtube.com/@maruel-music" target="_blank" rel="noopener" class="link-button" data-platform="youtube">
       <div class="link-icon icon-youtube">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        <img src="https://cdn.simpleicons.org/youtube/ff0000" alt="YouTube" loading="lazy">
       </div>
       <div class="link-text">
         <div class="link-title">YouTube</div>
@@ -485,9 +494,9 @@
     </a>
 
     <!-- Tidal -->
-    <a href="https://tidal.com/album/503186554" target="_blank" rel="noopener" class="link-button">
+    <a href="https://tidal.com/album/503186554" target="_blank" rel="noopener" class="link-button" data-platform="tidal">
       <div class="link-icon icon-tidal">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.012 3.992L8.008 7.996 4.004 3.992 0 7.996l4.004 4.004L8.008 8l4.004 4 4.004-4-4.004-4.008zm0 8.008l-4.004 4.004L4.004 12 0 16.004l4.004 4.004L8.008 16l4.004 4.008 4.004-4.008L12.012 12zm4.004-4.004L20.02 3.992 24 7.996l-3.984 4.004-4.004-4.004z"/></svg>
+        <img src="https://cdn.simpleicons.org/tidal/00ffff" alt="Tidal" loading="lazy">
       </div>
       <div class="link-text">
         <div class="link-title">Tidal</div>
@@ -497,9 +506,9 @@
     </a>
 
     <!-- Amazon Music -->
-    <a href="https://music.amazon.com/artists/B0FXVR34NG/maruel" target="_blank" rel="noopener" class="link-button">
+    <a href="https://music.amazon.com/artists/B0FXVR34NG/maruel" target="_blank" rel="noopener" class="link-button" data-platform="amazon">
       <div class="link-icon icon-amazon">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705a.66.66 0 01-.753.077c-1.06-.876-1.245-1.284-1.828-2.119-1.748 1.783-2.985 2.317-5.249 2.317C6.78 18.07 5 16.61 5 13.67c0-2.297 1.245-3.86 3.018-4.629 1.538-.68 3.681-.801 5.32-.989v-.364C13.338 6.5 13.456 5.2 12.64 4.5c-.7-.607-1.822-.718-2.565-.718-1.74 0-3.293.893-3.671 2.755a.647.647 0 01-.548.56l-2.97-.32c-.26-.057-.548-.266-.473-.66C3.248 2.451 6.662 1 9.74 1c1.59 0 3.67.424 4.925 1.629 1.59 1.484 1.438 3.465 1.438 5.624v5.094c0 1.532.636 2.205 1.234 3.032.213.296.26.651-.009.868-.67.559-1.86 1.6-2.516 2.183l-.007-.006-.66-.538zM21.125 21.1c-1.557 1.223-3.835 1.872-5.792 1.872-7.367 0-12.5-5.434-12.5-11.2 0-3.835 1.457-7.282 3.879-9.876.134-.134.296-.015.219.154-.67 2.218-.696 4.638-.696 6.744 0 4.106.07 8.106 3.753 10.706 1.5 1.063 3.558 1.698 5.424 1.698 1.484 0 3.174-.36 4.614-1.174.223-.127.41.154.219.376z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.12.48-.256.19-.6.41-1.006.654-1.244.743-2.64 1.316-4.185 1.726a17.617 17.617 0 01-10.951-.577 17.88 17.88 0 01-5.43-3.35c-.1-.074-.151-.15-.151-.22 0-.047.021-.09.051-.13zm6.565-6.218c0-1.005.247-1.863.743-2.577.495-.71 1.17-1.25 2.04-1.615.796-.335 1.756-.575 2.912-.72.39-.046 1.033-.103 1.92-.174v-.37c0-.93-.105-1.558-.3-1.875-.302-.43-.78-.65-1.44-.65h-.182c-.48.046-.896.196-1.246.46-.35.27-.575.63-.675 1.096-.06.3-.206.465-.435.51l-2.52-.315c-.248-.06-.372-.18-.372-.39 0-.046.007-.09.022-.15.247-1.29.855-2.25 1.82-2.88.976-.616 2.1-.975 3.39-1.05h.54c1.65 0 2.957.434 3.888 1.29.135.15.27.3.405.48.12.165.224.314.283.45.075.134.15.33.195.57.06.254.105.42.135.51.03.104.062.3.076.615.01.313.02.493.02.553v5.28c0 .376.06.72.165 1.036.105.313.21.54.315.674l.51.674c.09.136.136.256.136.36 0 .12-.06.226-.18.314-1.2 1.05-1.86 1.62-1.963 1.71-.165.135-.375.15-.63.045a6.062 6.062 0 01-.526-.496l-.31-.347a9.391 9.391 0 01-.317-.42l-.3-.435c-.81.886-1.603 1.44-2.4 1.665-.494.15-1.093.227-1.83.227-1.11 0-2.04-.343-2.76-1.034-.72-.69-1.08-1.665-1.08-2.94zm3.753-.438c0 .566.14 1.02.425 1.364.285.34.675.512 1.155.512.045 0 .106-.007.195-.02.09-.016.134-.023.166-.023.614-.16 1.08-.553 1.424-1.178.165-.28.285-.58.36-.91.09-.32.12-.59.135-.8.015-.195.015-.54.015-1.005v-.54c-.84 0-1.484.06-1.92.18-1.275.36-1.92 1.17-1.92 2.43z"/></svg>
       </div>
       <div class="link-text">
         <div class="link-title">Amazon Music</div>
@@ -509,9 +518,9 @@
     </a>
 
     <!-- SoundCloud -->
-    <a href="https://soundcloud.com/maruel_music/tracks" target="_blank" rel="noopener" class="link-button">
+    <a href="https://soundcloud.com/maruel_music/tracks" target="_blank" rel="noopener" class="link-button" data-platform="soundcloud">
       <div class="link-icon icon-soundcloud">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c-.01-.057-.05-.1-.1-.1m-.899.828c-.06 0-.091.037-.104.094L0 14.479l.172 1.308c.013.06.045.094.104.094.053 0 .09-.04.099-.094l.198-1.308-.198-1.332c-.01-.06-.046-.094-.099-.094m1.83-1.229c-.063 0-.109.05-.116.104l-.218 2.55.218 2.478c.008.06.053.104.116.104.063 0 .109-.045.116-.104l.254-2.478-.254-2.55c-.008-.06-.053-.104-.116-.104m.91-.27c-.066 0-.116.05-.124.108l-.204 2.82.204 2.558c.008.063.058.108.124.108s.116-.045.124-.108l.234-2.558-.234-2.82c-.008-.063-.058-.108-.124-.108m.932-.225c-.073 0-.124.054-.132.117l-.188 3.044.188 2.61c.008.063.06.116.132.116.07 0 .124-.053.132-.116l.216-2.61-.216-3.044c-.008-.063-.062-.117-.132-.117m.924-.154c-.08 0-.132.06-.14.124l-.173 3.198.173 2.636c.008.07.06.124.14.124.073 0 .132-.054.14-.124l.198-2.636-.198-3.198c-.008-.063-.066-.124-.14-.124m.937-.128c-.083 0-.14.063-.147.132l-.16 3.326.16 2.66c.008.07.065.131.147.131.08 0 .14-.06.147-.131l.184-2.66-.184-3.326c-.008-.07-.067-.132-.147-.132m.94-.07c-.088 0-.148.07-.155.14l-.15 3.396.15 2.674c.008.077.067.14.156.14.085 0 .148-.063.155-.14l.17-2.674-.17-3.396c-.007-.07-.07-.14-.155-.14m.952-.014c-.093 0-.155.07-.163.147l-.134 3.41.134 2.68c.008.08.07.147.163.147.088 0 .155-.067.163-.147l.154-2.68-.154-3.41c-.008-.077-.075-.147-.163-.147m.934.07c-.1 0-.163.077-.17.155l-.12 3.342.12 2.67c.007.085.07.155.17.155.093 0 .163-.07.17-.155l.138-2.67-.138-3.342c-.007-.078-.077-.155-.17-.155m.96-.298c-.1 0-.17.082-.178.163l-.106 3.64.106 2.7c.008.088.077.163.177.163.1 0 .17-.075.178-.163l.12-2.7-.12-3.64c-.008-.08-.078-.163-.178-.163m.972.166c-.1 0-.178.086-.186.17l-.09 3.474.09 2.724c.008.09.085.17.186.17.1 0 .178-.08.186-.17l.104-3.474-.104-2.724-.186-.17m.94-.485c-.107 0-.186.09-.193.178l-.076 3.96.076 2.737c.007.093.086.178.193.178.1 0 .186-.085.193-.178l.088-2.737-.088-3.96c-.007-.088-.093-.178-.193-.178m1.063-.104c-.113 0-.193.097-.2.186l-.063 4.064.063 2.746c.007.097.087.186.2.186.108 0 .193-.09.2-.186l.072-2.746-.072-4.064c-.007-.09-.092-.186-.2-.186m.992.088c-.12 0-.2.097-.207.193l-.05 3.976.05 2.755c.007.1.087.193.208.193.113 0 .2-.093.207-.193l.058-2.755-.058-3.976c-.007-.096-.094-.193-.207-.193m1.05-.226c-.12 0-.207.103-.214.2l-.036 4.2.036 2.76c.007.105.094.2.214.2.12 0 .207-.095.214-.2l.042-2.76-.042-4.2c-.007-.097-.094-.2-.214-.2m1.04.012c-.126 0-.214.107-.22.207l-.022 4.19.022 2.762c.006.107.094.207.22.207.12 0 .213-.1.22-.207l.025-2.762-.025-4.19c-.007-.1-.1-.207-.22-.207m1.063-.105c-.133 0-.22.113-.227.213l-.008 4.294.008 2.769c.007.107.094.213.227.213.127 0 .22-.106.227-.213l.01-2.769-.01-4.294c-.007-.1-.1-.213-.227-.213m1.68.797c-.63 0-1.22.184-1.714.503-.352-3.978-3.694-7.092-7.79-7.092-1.173 0-2.293.28-3.28.77-.37.185-.47.37-.474.733v14.07c.006.38.303.698.683.724h12.575c2.38 0 4.313-1.94 4.313-4.332 0-2.39-1.933-4.33-4.313-4.33"/></svg>
+        <img src="https://cdn.simpleicons.org/soundcloud/ff5500" alt="SoundCloud" loading="lazy">
       </div>
       <div class="link-text">
         <div class="link-title">SoundCloud</div>
@@ -521,7 +530,7 @@
     </a>
 
     <!-- Songbox -->
-    <a href="https://songbox.com/s/israel" target="_blank" rel="noopener" class="link-button">
+    <a href="https://songbox.com/s/israel" target="_blank" rel="noopener" class="link-button" data-platform="songbox">
       <div class="link-icon icon-songbox">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
       </div>
@@ -544,15 +553,15 @@
 
   <div class="social-row">
     <!-- TikTok -->
-    <a href="https://www.tiktok.com/@maruel_music" target="_blank" rel="noopener" class="social-link social-tiktok" title="TikTok">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48v-7.15a8.16 8.16 0 005.58 2.2v-3.4a4.85 4.85 0 01-3.77-1.82v-2.82z"/></svg>
+    <a href="https://www.tiktok.com/@maruel_music" target="_blank" rel="noopener" class="social-link social-tiktok" title="TikTok" data-platform="tiktok">
+      <img src="https://cdn.simpleicons.org/tiktok/ffffff" alt="TikTok" loading="lazy">
     </a>
     <!-- Instagram -->
-    <a href="https://www.instagram.com/maruel_music" target="_blank" rel="noopener" class="social-link social-instagram" title="Instagram">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    <a href="https://www.instagram.com/maruel_music" target="_blank" rel="noopener" class="social-link social-instagram" title="Instagram" data-platform="instagram">
+      <img src="https://cdn.simpleicons.org/instagram/e4405f" alt="Instagram" loading="lazy">
     </a>
     <!-- Email -->
-    <a href="mailto:rune@studiox.no" class="social-link social-email" title="Email">
+    <a href="mailto:rune@studiox.no" class="social-link social-email" title="Email" data-platform="email">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
     </a>
   </div>
@@ -564,5 +573,33 @@
   </div>
 </div>
 
+<script>
+  (function () {
+    function track(payload) {
+      var data = JSON.stringify(payload);
+      if (navigator.sendBeacon) {
+        var blob = new Blob([data], { type: 'application/json' });
+        navigator.sendBeacon('/api/track', blob);
+      } else {
+        fetch('/api/track', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: data,
+          keepalive: true
+        }).catch(function () {});
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      track({ event: 'pageview' });
+
+      document.querySelectorAll('[data-platform]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          track({ event: 'click', link: el.dataset.platform });
+        });
+      });
+    });
+  })();
+</script>
 </body>
 </html>
