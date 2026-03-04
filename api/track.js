@@ -31,10 +31,17 @@ module.exports = async function handler(req, res) {
 
   const key = event === 'pageview' ? 'stats:pageviews' : `stats:click:${link}`;
 
-  await fetch(`${url}/incr/${encodeURIComponent(key)}`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}` }
-  });
-
-  return res.status(200).json({ ok: true });
+  try {
+    const upstashRes = await fetch(`${url}/incr/${key}`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    const data = await upstashRes.json();
+    if (!upstashRes.ok) {
+      return res.status(500).json({ error: 'Redis error', detail: data });
+    }
+    return res.status(200).json({ ok: true, count: data.result });
+  } catch (err) {
+    return res.status(500).json({ error: 'Fetch failed', detail: err.message });
+  }
 };
